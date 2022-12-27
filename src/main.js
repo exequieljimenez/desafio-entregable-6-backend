@@ -19,6 +19,8 @@ io.on('connection', socket => {
 
     socket.on('producto', datat => {
         contenedorArchivos.guardar(datat)
+
+        io.sockets.emit('productos', products)
     })
 
     socket.emit('mensajes', contenedorMemoria.listarAll())
